@@ -1,0 +1,132 @@
+		#galleryTouch {
+height: 470px;
+width: 300px;
+overflow: hidden;
+position: relative;
+margin: 0 auto;
+
+}
+		
+#galleryTouch #imgs {
+float: left;
+display: inline;
+-webkit-transition-property: -webkit-transform;
+-webkit-transition-duration: 0.5s;
+-webkit-transition-timing-function: ease-out;
+padding: 0px;
+margin: 0px;
+width: 2100px;
+-webkit-transform: translate3d(0px,0px,0px);
+}		
+
+#galleryTouch #imgs img {
+padding: 0px;
+margin: 0px;
+width: 300px;
+height:100%;
+-webkit-transform: translate3d(0px,0px,0px);
+}
+
+.download-button {
+width:90%;
+height:40px;
+background:red;
+margin: 0 auto;
+padding-top:20px;
+text-align:center;
+color:white;
+text-transform:uppercase;
+font-family: 'Open Sans', sans-serif;
+background:#2eb6e9;
+border-radius:10px;
+cursor:pointer;
+}
+
+
+ a {
+text-decoration:none;
+
+}
+
+#subscribe-form {
+width:95%;
+height:95%;
+position:absolute;
+background:white;
+z-index:10000000;
+-webkit-transform: translate3d(0px,-700px,0px);
+-webkit-transition-property: -webkit-transform;
+-webkit-transition-duration: 0.5s;
+-webkit-transition-timing-function: ease-out;
+font-family: 'Open Sans', sans-serif;
+font-size:20px;
+color:black;
+text-align:center;
+font-weight:300;
+}
+
+#subscribe-form img {
+width:80%;
+margin-top:20px;
+}
+
+
+#power-form {
+margin-top:20px;
+}
+
+
+#exple {
+margin-top:20px;
+
+}
+
+#power-input {
+width:95%;
+height:50px;
+padding-left:10px;
+font-size: 16px!important}
+}
+
+input:focus { font-size: 16px!important}
+
+
+#power-button {
+width:25%;
+height:55px;
+background:#2eb6e9;
+border:none;
+margin-top:10px;
+color:white;
+font-size:18px;
+text-transform:uppercase;
+font-family: 'Open Sans', sans-serif;
+cursor:pointer;
+position: relative;
+float: right;
+top: -66px;
+}
+
+
+#cancel {
+position: absolute;
+bottom: 0;
+width: 100%;
+cursor:pointer;
+}
+
+
+#home-screen {
+opacity:1;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  -moz-transition: opacity 0.7s ease-in-out;
+  -ms-transition: opacity 0.7s ease-in-out;
+  -o-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+
+
+
+
+

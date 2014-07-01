@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+    <head>  
+
+
+       
+     
+        <link href="main.css" type="text/css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<script>
+	$(function()
+	{
+		var IMG_WIDTH = 300,
+		currentImg=0,
+		maxImages=5;
+		speed=500,
+		imgs = $("#imgs");
+
+		//Init touch swipe
+		imgs.swipe( {
+			triggerOnTouchEnd : true,
+			swipeStatus : swipeStatus,
+			allowPageScroll:"vertical"
+		});
+
+		/**
+		* Catch each phase of the swipe.
+		* move : we drag the div.
+		* cancel : we animate back to where we were
+		* end : we animate to the next image
+		*/
+		function swipeStatus(event, phase, direction, distance, fingers)
+		{
+			//If we are moving before swipe, and we are going L or R, then manually drag the images
+			if( phase=="move" && (direction=="left" || direction=="right") )
+			{
+				var duration=0;
+
+				if (direction == "left")
+					scrollImages((IMG_WIDTH * currentImg) + distance, duration);
+
+				else if (direction == "right")
+					scrollImages((IMG_WIDTH * currentImg) - distance, duration);
+			}
+
+			//Else, cancel means snap back to the begining
+			else if ( phase == "cancel")
+			{
+				scrollImages(IMG_WIDTH * currentImg, speed);
+			}
+
+			//Else end means the swipe was completed, so move to the next image
+			else if ( phase =="end" )
+			{
+				if (direction == "right")
+					previousImage()
+				else if (direction == "left")
+					nextImage()
+			}
+		}
+
+		function previousImage()
+		{
+			currentImg = Math.max(currentImg-1, 0);
+			scrollImages( IMG_WIDTH * currentImg, speed);
+		}
+
+		function nextImage()
+		{
+			currentImg = Math.min(currentImg+1, maxImages-1);
+			scrollImages( IMG_WIDTH * currentImg, speed);
+		}
+
+		/**
+		 * Manually update the position of the imgs on drag
+		 */
+		function scrollImages(distance, duration)
+		{
+			imgs.css("-webkit-transition-duration", (duration/1000).toFixed(1) + "s");
+
+			//inverse the number we set in the css
+			var value = (distance<0 ? "" : "-") + Math.abs(distance).toString();
+
+			imgs.css("-webkit-transform", "translate3d("+value +"px,0px,0px)");
+		}
+	});
+</script>
+
+
+
+
+		
+		
+        
+
+    </head>
+	
+	
+	<div id="subscribe-form" >
+		<img src="images/logo.jpg"  />
+		<div id="exple">The {{iOS/Android}} version is almost ready, please enter your email below and we'll let you know when you can download it</div>
+		
+			<form id="power-form" >
+				<input id="power-input" name="email" class="email" type="text" placeholder="Enter your email address here">
+				<button id="power-button" type="submit" class="btn_email">SEND</button>
+			</form>
+	
+	
+		<div id="cancel">Cancel</div>
+	</div>
+	
+    <body>
+<div id="home-screen">			
+			<div id="galleryTouch">
+  <div id="imgs">
+    <img src="images/1.jpg" />
+    <img src="images/pera.gif" style="margin-left:-5px;"/>
+    <img src="images/3.jpg" style="margin-left:-3px;"/>
+    <img src="images/4.jpg" style="margin-left:-4px;"/>
+    <img src="images/5.jpg" style="margin-left:-4px;"/>
+  </div>
+</div>
+			
+	<div id="download-butt" class="download-button" >Download browser
+	
+	</div>	
+	
+</div>	
+	
+	
+			<script>
+
+
+$("#download-butt").on('click', function() {
+	
+   $("#subscribe-form").css('display','block');
+   $("#home-screen").css('opacity','0');
+   $("#subscribe-form").css('-webkit-transform','translate3d(0px,0px,0px)');
+ 
+
+ 
+});
+
+
+$("#cancel").on('click', function() {
+	
+   $("#subscribe-form").css('display','block');
+   $("#subscribe-form").css('-webkit-transform','translate3d(0px,-700px,0px)');
+     $("#home-screen").css('display','block');
+	   $("#home-screen").css('opacity','1');
+ 
+
+ 
+});
+
+
+
+
+</script>
+		
+			
+			
+   </body>
+</html>
